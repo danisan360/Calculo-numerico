@@ -1,0 +1,127 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath} 
+
+\title{Cálculo Numérico - Aspectos Teóricos e Computacionais \\ \large Capítulo 1}
+\author{Daniel Santos}
+
+\begin{document}
+
+\maketitle
+
+\section*{Exercícios}
+\begin{enumerate}
+\item Converta os seguintes números decimais para sua forma binária:\\
+$x = 37$ \hfil
+$y = 2345$ \hfil
+$z = 0.1217$
+
+\item Converta os seguintes números binários para sua forma decimal:\\
+$x = (101101)_2$  \hfill  $y = (110101011)_2$ \hfill \mbox{} \\
+$z = (0.01101)_2$   \hfill  $w = (0.111111101)_2$ \hfill \mbox{}
+
+\end{enumerate}
+
+
+\section*{Resolução}
+\begin{enumerate}
+\item 
+\begin{enumerate}
+    \item 
+        \begin{align*}
+        &37 \\
+        &N_0 = 37 = 2\cdot18 + 1 \xrightarrow{} a_0 = 1 \\ 
+        &N_1 = 18 = 2\cdot9 + 0 \xrightarrow{} a_1 = 0  \\
+        &N_2 = 9 = 2\cdot4 + 1 \xrightarrow{} a_2 = 1  \\
+        &N_3 = 4 = 2\cdot2 + 0 \xrightarrow{} a_3 = 0  \\
+        &N_4 = 2 = 2\cdot1 + 0 \xrightarrow{} a_4 = 0  \\
+        &N_5 = 1 = 2\cdot0 + 1 \xrightarrow{} a_5 = 1  \\
+        &(37)_10 = (100101)_2
+        \end{align*}
+    \item 
+        \begin{align*}
+        &2345 \\
+        &N_0 = 2345 = 2\cdot1172 + 1 \xrightarrow{} a_0 = 1 \\ 
+        &N_1 = 1172 = 2\cdot586 + 0 \xrightarrow{} a_1 = 0 \\ 
+        &N_2 = 586 = 2\cdot293 + 0  \xrightarrow{} a_2 = 0 \\ 
+        &N_3 = 293 = 2\cdot146 + 1 \xrightarrow{} a_3 = 1 \\ 
+        &N_4 = 146 = 2\cdot73 + 0  \xrightarrow{} a_4 = 0 \\ 
+        &N_5 = 73 = 2\cdot36 + 1 \xrightarrow{} a_5 = 1 \\ 
+        &N_6 = 36 = 2\cdot18 + 0 \xrightarrow{} a_6 = 0 \\ 
+        &N_7 = 18 = 2\cdot9 + 0 \xrightarrow{} a_7 = 0 \\ 
+        &N_8 = 9 = 2\cdot4 + 1 \xrightarrow{} a_8 = 1  \\
+        &N_9 = 4 = 2\cdot2 + 0 \xrightarrow{} a_9 = 0  \\
+        &N_10 = 2 = 2\cdot1 + 0 \xrightarrow{} a_10 = 0  \\
+        &N_11 = 1 = 2\cdot0 + 1 \xrightarrow{} a_11 = 1  \\
+        &(2345)_10 = (100100101001)_2
+        \end{align*}
+    \item 
+        \begin{align*}
+        &0.1217 \\
+        & k=1 \quad  2r_1 = 0.2434 => d_1 = 0 \quad r_2 = 0.2434 \\ 
+        & k=2 \quad  2r_2 = 0.4868 => d_2 = 0 \quad r_3 = 0.4868  \\
+        & k=3 \quad  2r_3 = 0.9736 => d_3 = 0 \quad r_4 = 0.9736  \\
+        & k=4 \quad  2r_4 = 1.9472 => d_4 = 1 \quad r_5 = 0.9472  \\
+        & k=5 \quad  2r_5 = 1.8944 => d_5 = 1 \quad r_6 = 0.8944  \\
+        & k=6 \quad  2r_6 = 1.7888 => d_6 = 1 \quad r_7 = 0.7888  \\
+        & k=7 \quad  2r_7 = 1.5776 => d_7 = 1 \quad r_8 = 0.5776  \\
+        & k=8 \quad  2r_8 = 1.1552 => d_8 = 1 \quad r_9 = 0.1552  \\
+        & k=9 \quad  2r_9 = 0.3104 => d_9 = 0 \quad r_{10} = 0.3104  \\
+        & k=10 \quad  2r_{10} = 0.6208 => d_{10} = 0 \quad r_{11} = 0.6208  \\
+        & k=11 \quad  2r_{11} = 1.2416 => d_{11} = 1 \quad r_{12} = 0.2416  \\
+        & k=12 \quad  2r_{12} = 0.4832 => d_{12} = 0 \quad r_{13} = 0.4832  \\
+        & k=13 \quad  2r_{13} = 0.9664 => d_{13} = 0 \quad r_{14} = 0.9664  \\
+        & k=14 \quad  2r_{14} = 1.9328 => d_{14} = 1 \quad r_{15} = 0.9328  \\
+        & k=15 \quad  2r_{15} = 1.8656 => d_{15} = 1 \quad r_{16} = 0.8656  \\
+        & k=16 \quad  2r_{16} = 1.7312 => d_{16} = 1 \quad r_{17} = 0.7312  \\
+        & k=17 \quad  2r_{17} = 1.4624 => d_{17} = 1 \quad r_{18} = 0.4624  \\
+        & k=18 \quad  2r_{18} = 0.9248 => d_{18} = 0 \quad r_{19} = 0.9248  \\
+        & k=19 \quad  2r_{19} = 1.8496 => d_{19} = 1 \quad r_{20} = 0.8496  \\
+        & k=20 \quad  2r_{20} = 1.6992 => d_{20} = 1 \quad r_{21} = 0.6992  \\
+        & k=21 \quad  2r_{21} = 1.3984 => d_{21} = 1 \quad r_{22} = 0.3984  \\
+        & k=22 \quad  2r_{22} = 0.7968 => d_{22} = 0 \quad r_{23} = 0.7968  \\
+        & k=23 \quad  2r_{23} = 1.5936 => d_{23} = 1 \quad r_{24} = 0.5936  \\
+        & k=24 \quad  2r_{24} = 1.1872 => d_{24} = 1 \quad r_{25} = 0.1872  \\
+        \end{align*}
+
+        E assim segue infinitamente, não existindo representação exata.
+\end{enumerate}
+
+\item 
+\begin{enumerate}
+    \item 
+        \begin{align*}
+        &(101101)_2 \\
+        &= 1\cdot2^5 + 0\cdot2^4 + 1\cdot2^3 + 1\cdot2^2 + 0\cdot2^1 + 1\cdot2^0 \\
+        &= 32 + 0 + 8 + 4 + 0 + 1 = 45
+        \end{align*}
+    \item 
+        \begin{align*}
+        &(110101011)_2 \\
+        &= 1\cdot2^8 +1\cdot2^7 +0\cdot2^6 +1\cdot2^5 + 0\cdot2^4 + 1\cdot2^3 \\
+        &+ 0\cdot2^2 + 1\cdot2^1 + 1\cdot2^0 \\
+        &= 256 + 128 + 0 + 32 + 0 + 8 + 0 +2 + 1 \\
+        &= 427
+        \end{align*}
+    \item 
+        \begin{align*}
+        &(0.01101)_2 \\
+        &=0\cdot2^{-1} + 1\cdot2^{-2} + 1\cdot2^{-3} + 0\cdot2^{-4} + 1\cdot2^{-5} \\
+        &=0 + 0.25 + 0.125 + 0 + 0.03125 \\
+        &=0.40625
+        \end{align*}
+    \item 
+        \begin{align*}
+        &(0.111111101)_2 \\
+        &=1\cdot2^{-1} + 1\cdot2^{-2} + 1\cdot2^{-3} + 1\cdot2^{-4}  \\
+        &+ 1\cdot2^{-5} + 1\cdot2^{-6} + 1\cdot2^{-7} + 0\cdot2^{-8} + 1\cdot2^{-9} \\
+        &= 0.5 + 0.25 + 0.125 + 0.0625 + 0.03125 + 0.015625 \\
+        &+ 0.0078125 + 0 + 0.001953125 \\
+        &=0.994140625 
+        \end{align*}
+\end{enumerate}
+
+\end{enumerate}
+
+
+\end{document}
