@@ -20,6 +20,19 @@ $z = 0.1217$
 $x = (101101)_2$  \hfill  $y = (110101011)_2$ \hfill \mbox{} \\
 $z = (0.01101)_2$   \hfill  $w = (0.111111101)_2$ \hfill \mbox{}
 
+\item Seja um sistema de aritmética de ponto flutuante de quatro\\ dígitos, base decimal e com acumulador de precisão dupla. Dados os números: \\
+$x=0.7237 \times 10^{4}$\quad
+$y = 0.2145 \times 10^{-3}$ \quad
+e \quad $z=0.2585 \times 10^{1}$ \\
+efetue as seguintes operações e obtenha o erro relativo no resultado,\\ supondo que x, y e z estão exatamente representados:
+\begin{enumerate}
+    \item $x+y+z$
+    \item $x-y-z$
+    \item $x/y$
+    \item $(xy)/z$
+    \item $x(y/z)$
+\end{enumerate}
+
 \end{enumerate}
 
 
@@ -121,6 +134,121 @@ $z = (0.01101)_2$   \hfill  $w = (0.111111101)_2$ \hfill \mbox{}
         \end{align*}
 \end{enumerate}
 
+\item
+\begin{enumerate}
+    \item 
+    Valor de y desconsiderado por conta do acumulador de precisão \\dupla ter precisão apenas até a 8ª cada decimal.
+    \begin{align*}
+        &\overline{x + y} \\
+        &=0.7237 \times 10^{4} + 0.2145 \times 10^{-3}\\
+        &=0.7237 \times 10^{4} + 0.000000002145 \times 10^{4}\\
+        &=0.7237 \times 10^{4} \\
+        &\overline{(x+y)+z} \\
+        &0.7237 \times 10^{4} + 0.2585 \times 10^{1}\\
+        &=0.7237 \times 10^{4} + 0.0002585 \times 10^{4}\\
+        &=0.7239585 \times 10^{4}
+    \end{align*}
+    
+    $\overline{x+y+z} = 0.7239 \times 10^{4}$, no truncamento. \\
+    $\overline{x+y+z} = 0.7240 \times 10^{4}$, no arredondamento. \\
+
+    O valor real seria $0.72395850214\times 10^{4}$. Vamos calcular o erro relativo.\\Para simplificar, considerarei apenas o arredondamento.
+    \begin{align*}
+        EA_{x+y+z} &= |(x+y+z) - \overline{x+y+z}|\\
+        &=|0.72395850214\times 10^{4} - 0.7240 \times 10^{4}|\\
+        &=0.00004149786 \times10^{4} = 0.4149786\\
+        ER_{x+y+z} &= \frac{EA_{x+y+z}}{\overline{x+y+z}}\\
+        &=\frac{0.4149786}{0.7240 \times 10^{4}}\\
+        &\approx 0.00005731748
+    \end{align*}
+    \item 
+    Valor de y desconsiderado por conta do acumulador de precisão \\dupla ter precisão apenas até a 8ª cada decimal.
+    \begin{align*}
+        &\overline{x - y} \\
+        &=0.7237 \times 10^{4} - 0.2145 \times 10^{-3}\\
+        &=0.7237 \times 10^{4} - 0.000000002145 \times 10^{4}\\
+        &=0.7237 \times 10^{4} \\
+        &\overline{(x-y)-z} \\
+        &0.7237 \times 10^{4} - 0.2585 \times 10^{1}\\
+        &=0.7237 \times 10^{4} - 0.0002585 \times 10^{4}\\
+        &=0.7234415 \times 10^{4}
+    \end{align*}
+
+    $\overline{x-y-z} = 0.7234 \times 10^{4}$, no arredondamento e truncamento. \\
+
+    O valor real seria $7237-0.0002145-2.585=7234.4147855$. Vamos calcular o erro relativo.
+    \begin{align*}
+        EA_{x-y-z} &= |(x-y-z) - \overline{x-y-z}|\\
+        &=|7234.4147855 - 7234|\\
+        &=0.4147855\\
+        ER_{x+y+z} &= \frac{EA_{x+y+z}}{\overline{x+y+z}}\\
+        &=\frac{0.4147855}{7234.4147855}\\
+        &\approx 5.73\times 10^{-5}
+    \end{align*}
+    \item 
+    \begin{align*}
+        &\overline{x / y} \\
+        &=(0.7237 \times 10^{4}) / (0.2145 \times 10^{-3})\\
+        &=(0.7237/0.2145) \times 10^{7} \\
+        &=3.37389277389\times 10^{7}\\
+        &=0.337389277389\times 10^{8}\\
+    \end{align*}
+
+    $\overline{x/y} = 0.3373\times 10^{8}$, no truncamento. \\
+    $\overline{x/y} = 0.3374\times 10^{8}$, no arredondamento. \\
+    
+    O valor real seria $7237/0.0002145 \approx 33738927.7389$.\\
+
+    \begin{align*}
+        EA_{x/y} &= |(x/y) - \overline{x/y}|\\
+        &=|33740000 - 33738927.7389|\\
+        &=1072.2611\\
+        ER_{x/y} &= \frac{EA_{x/y}}{\overline{x/y}}\\
+        &=\frac{1072.2611}{33738927.7389}\\
+        &\approx 3.17\times 10^{-5}
+    \end{align*}
+    \item 
+    \begin{align*}
+        &\overline{(xy)}\\
+        &=0.7237 \times 10^{4} \cdot 0.2145 \times 10^{-3}\\
+        &=(0.7237\cdot0.2145) \times 10^{1}\\
+        &=0.15523365 \times 10^{1} \\
+        &=0.1552 \times 10^{1} \\
+        &\overline{(xy)/z}\\
+        & (0.1552 \times 10^{1}) / (0.2585 \times 10^{1}) \\
+        & 0.60038684719 \times 10^{0}
+    \end{align*}
+    
+    $\overline{(xy)/z} = 0.6003\times 10^{0}$, no truncamento. \\
+    $\overline{(xy)/z} = 0.6004\times 10^{0}$, no arredondamento. \\
+
+    O valor real seria $\approx 0.60051$.\\
+
+    \begin{align*}
+        ER_{(xy)/z} &= \frac{EA_{(xy)/z}}{\overline{(xy)/z}}\\
+        &=\frac{0.60051 - 0.6004}{0.60051}\\
+        &\approx 1.83\times 10^{-4}
+    \end{align*}    
+    \item 
+        \begin{align*}
+        &\overline{(y/z)}\\
+        &=0.2145 \times 10^{-3}/0.2585 \times 10^{1}\\
+        &= 0.82978723404 \times 10^{-2}\\
+        &=0.8297 \times 10^{-2} \\
+        &\overline{(x(y/z)}\\
+        & 0.8297 \times 10^{-2} \cdot 0.7237 \times 10^{4}\\
+        & 0.60045389 \times 10^{2}
+    \end{align*}
+    
+    $\overline{(x(yz)} = 0.6004\times 10^{2}$, no truncamento. \\
+    $\overline{((x(yz)} = 0.6005\times 10^{2}$, no arredondamento. \\
+
+    \begin{align*}
+        ER_{(x(y/z)} &= \frac{EA_{(x(y/z)}}{\overline{(x(y/z)}}\\
+        &=\frac{|0.60051 - 0.6005|}{0.60051}\\
+        &\approx 1.66 \times 10^{-5}
+    \end{align*}    
+\end{enumerate}
 \end{enumerate}
 
 
